@@ -1,0 +1,32 @@
+{
+  "name": "proofpulse",
+  "version": "1.0.0",
+  "description": "**AI-native verifiable reliability layer for Web3 infrastructure.**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed",
+    "e2e:ui": "playwright test --ui",
+    "e2e:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathieuDWeill/proofpulse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathieuDWeill/proofpulse/issues"
+  },
+  "homepage": "https://github.com/MathieuDWeill/proofpulse#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}

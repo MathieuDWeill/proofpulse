@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSeed.disabled = true;
     btnSeed.textContent = 'Generating...';
     try {
-      const response = await fetch('/demo/seed', {
+      const severityOption = Math.random() > 0.5 ? 'critical' : 'high';
+      const response = await fetch(`/demo/seed?force_severity=${severityOption}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

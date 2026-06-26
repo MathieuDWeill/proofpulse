@@ -77,8 +77,10 @@ def prepare_attestation(payload: AttestationPrepareRequest):
         raise HTTPException(status_code=404, detail="bundle not found")
     return store.prepare_attestation(payload)
 
+from typing import Optional
+
 @app.post("/demo/seed")
-def seed_demo():
+def seed_demo(force_severity: Optional[str] = None):
     target = store.create_target(TargetCreate(
         name="EU RPC + RWA Oracle Cluster",
         kind="rwa_oracle",
@@ -89,6 +91,22 @@ def seed_demo():
     ))
     checks = [store.run_check(CheckRequest(target_id=target.id, mode="synthetic")) for _ in range(4)]
     incident = store.analyze_incident(IncidentAnalyzeRequest(target_id=target.id, check_ids=[c.id for c in checks]))
+    
+    if force_severity:
+        from .models import Severity
+        if force_severity in ["critical", "high"]:
+            incident.severity = Severity(force_severity)
+            if force_severity == "critical":
+                incident.risk_score = 95
+            else:
+                incident.risk_score = 78
+            # Re-generate summary to show modified severity
+            incident.summary = (
+                f"{target.name} shows {incident.severity.value} operational risk. "
+                f"Observed max latency is {max([c.latency_ms for c in checks], default=0)}ms across {len(checks)} checks, "
+                f"with {sum(1 for c in checks if c.status != 'ok')} degraded observations."
+            )
+
     bundle = store.create_bundle(EvidenceBundleRequest(target_id=target.id, incident_id=incident.id))
     att = store.prepare_attestation(AttestationPrepareRequest(bundle_id=bundle.bundle_id, chain="ethereum-sepolia"))
     
