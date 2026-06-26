@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProofPulse Demo</title>
+  <style>
+    :root { --bg:#08111f; --panel:#101c31; --ink:#edf4ff; --muted:#8da2bd; --line:#22324f; --ok:#61d394; --warn:#ffd166; --bad:#ff6b6b; --accent:#7c9cff; }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top left,#172a4e,#08111f 45%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,Arial;padding:32px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}.card{background:rgba(16,28,49,.88);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 80px rgba(0,0,0,.25)}
+    h1{font-size:56px;line-height:.92;margin:0 0 16px} h2{margin:0 0 14px} p{color:var(--muted);font-size:17px;line-height:1.55}.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:#c9d7ff;background:#0c1730;margin:0 8px 8px 0;font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.metric{font-size:34px;font-weight:800}.label{color:var(--muted);font-size:13px}.timeline{margin-top:20px}.step{display:flex;gap:14px;border-left:2px solid var(--line);padding:0 0 18px 18px}.dot{width:14px;height:14px;border-radius:999px;background:var(--accent);margin-left:-26px;box-shadow:0 0 20px var(--accent)}
+    code{background:#071022;border:1px solid var(--line);padding:3px 6px;border-radius:7px}.cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}.button{background:var(--accent);color:#061022;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800}.button.secondary{background:transparent;color:#dbe6ff;border:1px solid var(--line)}
+    @media(max-width:900px){.hero,.grid{grid-template-columns:1fr}h1{font-size:42px}}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="card">
+      <span class="badge">AWS Activate</span><span class="badge">Web3 Infra</span><span class="badge">AI Agent</span><span class="badge">RWA Compliance</span>
+      <h1>ProofPulse</h1>
+      <p><strong>Verifiable reliability for Web3 infrastructure.</strong> ProofPulse monitors RPCs, validators, bridges and RWA data pipelines, creates AI-generated incident evidence, and anchors tamper-evident proof hashes on-chain.</p>
+      <div class="cta"><a class="button" href="../../docs/AWS_ACTIVATE_APPLICATION.md">Read application</a><a class="button secondary" href="http://localhost:8080/docs">Open API docs</a></div>
+    </div>
+    <div class="card">
+      <h2>Live demo flow</h2>
+      <div class="timeline">
+        <div class="step"><div class="dot"></div><div><strong>1. Monitor</strong><br><span class="label">Synthetic checks + infra telemetry</span></div></div>
+        <div class="step"><div class="dot"></div><div><strong>2. Analyze</strong><br><span class="label">AI SRE risk summary and remediation</span></div></div>
+        <div class="step"><div class="dot"></div><div><strong>3. Bundle</strong><br><span class="label">Canonical evidence JSON + SHA-256 hash</span></div></div>
+        <div class="step"><div class="dot"></div><div><strong>4. Anchor</strong><br><span class="label">Prepared on-chain attestation calldata</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="grid">
+    <div class="card"><div class="metric">$10k+</div><div class="label">AWS credit justification</div><p>Compute, logs, Bedrock analysis, S3 evidence, OpenSearch, and ECS/Fargate workloads.</p></div>
+    <div class="card"><div class="metric">4</div><div class="label">Target categories</div><p>RPC, validators, bridges, and RWA oracle / compliance data pipelines.</p></div>
+    <div class="card"><div class="metric">1 hash</div><div class="label">Audit artifact</div><p>Every incident produces a stable evidence hash that can be verified later.</p></div>
+  </section>
+  <section class="card" style="margin-top:24px">
+    <h2>Pitch</h2>
+    <p>When Web3 infrastructure fails, users see downtime but auditors see nothing. ProofPulse turns incidents into verifiable evidence: what happened, when it happened, what data was observed, what the AI agent concluded, and which proof was anchored.</p>
+    <p>Run the backend, call <code>POST /demo/seed</code>, then show <code>/demo/state</code> and the prepared attestation.</p>
+  </section>
+</body>
+</html>

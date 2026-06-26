@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: proofpulse
+Version: 0.2.0
+Summary: AI-native verifiable reliability layer for Web3 infrastructure
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: fastapi==0.115.13
+Requires-Dist: uvicorn[standard]==0.34.3
+Requires-Dist: pydantic==2.11.7
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: httpx==0.28.1
+Provides-Extra: dev
+Requires-Dist: pytest==8.4.1; extra == "dev"
+Dynamic: license-file

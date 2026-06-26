@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proofpulse"
+version = "0.2.0"
+description = "AI-native verifiable reliability layer for Web3 infrastructure"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi==0.115.13",
+  "uvicorn[standard]==0.34.3",
+  "pydantic==2.11.7",
+  "python-dotenv==1.1.0",
+  "httpx==0.28.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.1"
+]
+
+[tool.setuptools.packages.find]
+where = ["apps/api"]
+include = ["proofpulse_api*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps/api"]
+testpaths = ["tests"]

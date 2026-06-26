@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProofPulse Dashboard — Verifiable Web3 Infrastructure Reliability</title>
+  <meta name="description" content="Verifiable evidence bundle generator and on-chain attestation engine for decentralized networks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="glow-container">
+    <div class="glow-orb" id="orb-1"></div>
+    <div class="glow-orb" id="orb-2"></div>
+  </div>
+
+  <div class="wrap">
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon"></div>
+        <div class="brand-text">
+          <span class="logo-text">Proof<span>Pulse</span></span>
+          <span class="version-tag">v0.2.0</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="/docs" target="_blank" id="btn-docs">API Docs</a>
+        <a class="btn btn-secondary" href="/demo/state" target="_blank" id="btn-state">Raw State</a>
+        <a class="btn btn-secondary" href="/health" target="_blank" id="btn-health">Health Status</a>
+      </div>
+    </header>
+
+    <div class="hero-section">
+      <div class="hero-left">
+        <div class="pill-group">
+          <span class="tag tag-accent">AWS Activate</span>
+          <span class="tag">AI SRE</span>
+          <span class="tag">Decentralized Monitoring</span>
+        </div>
+        <h1 class="main-title">Verifiable Reliability Layer for Web3 Infrastructure</h1>
+        <p class="subtitle">
+          ProofPulse is Datadog meets cryptographic truth. When RPC nodes, validators, or RWAs fail, ProofPulse doesn't just alert you — it generates a tamper-proof evidence bundle and prepares an on-chain attestation.
+        </p>
+        <div class="action-bar">
+          <button id="btn-seed" class="btn btn-primary btn-pulse">
+            <span class="icon-zap"></span> Generate Demo Incident
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card status-card">
+          <div class="card-header">
+            <h3>Live Monitoring State</h3>
+            <div class="status-indicator" id="status-dot">
+              <span class="dot"></span>
+              <span class="status-label" id="status-label">Standby</span>
+            </div>
+          </div>
+          
+          <div class="monitoring-info">
+            <div class="info-group">
+              <label>Target Monitored</label>
+              <div class="value text-glow" id="lbl-target-name">None loaded. Trigger seed.</div>
+            </div>
+            
+            <div class="info-row">
+              <div class="info-group">
+                <label>Target ID</label>
+                <div class="value code-text" id="lbl-target-id">—</div>
+              </div>
+              <div class="info-group">
+                <label>Risk Score</label>
+                <div class="value score-value text-red" id="lbl-risk-score">0</div>
+              </div>
+            </div>
+
+            <div class="info-group">
+              <label>AI SRE Summary</label>
+              <p class="summary-text" id="lbl-incident-summary">
+                Ready to analyze simulated RPC degradation or oracle outages. Click the "Generate Demo Incident" button to trigger the flow.
+              </p>
+            </div>
+
+            <div class="info-group">
+              <label>Likely Cause</label>
+              <p class="summary-text" id="lbl-incident-cause">—</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Incident Details Row (Visible after seed) -->
+    <div class="grid grid-2" id="detail-section">
+      <div class="card glass-card">
+        <div class="card-badge">Computed Assets</div>
+        <h2>Evidence Bundle & Integrity</h2>
+        <p>A deterministic JSON file containing logs, latency checks, and node identities is compiled, signed, and hashed.</p>
+        
+        <div class="meta-field">
+          <label>Bundle ID</label>
+          <div class="hash-box" id="lbl-bundle-id">—</div>
+        </div>
+        
+        <div class="meta-field">
+          <label>Bundle SHA-256 Hash</label>
+          <div class="hash-box highlight-hash" id="lbl-bundle-hash">—</div>
+        </div>
+      </div>
+
+      <div class="card glass-card">
+        <div class="card-badge highlight-badge">Attestation</div>
+        <h2>On-chain Prepared Proof</h2>
+        <p>ProofPulse compiles the parameters for an Ethereum/EAS/Sepolia smart contract call verifying the failure in a decentralized registry.</p>
+        
+        <div class="meta-field">
+          <label>Attestation Status</label>
+          <div class="status-tag" id="lbl-attestation-status">Pending Seed</div>
+        </div>
+        
+        <div class="meta-field">
+          <label>Calldata Preview (bundleHash)</label>
+          <div class="hash-box highlight-calldata" id="lbl-attestation-calldata">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended actions section -->
+    <div class="card glass-card actions-card" id="actions-section">
+      <h2>Recommended AI SRE Actions</h2>
+      <ul class="actions-list" id="lst-recommended-actions">
+        <li class="placeholder-item">No actions prepared. Seed a new incident to generate recommended recovery steps.</li>
+      </ul>
+    </div>
+
+    <!-- Why AWS Activate Credits Matter & Submission-ready Flow Grid -->
+    <div class="grid grid-2">
+      <!-- Why AWS Activate Credits Matter -->
+      <section class="card glass-card">
+        <div class="card-badge info-badge">AWS Synergy</div>
+        <h2>Why AWS Activate Credits Matter</h2>
+        <p class="section-intro">Running a production-ready, globally distributed decentralized oracle and RPC monitoring grid requires resilient cloud architecture:</p>
+        
+        <ul class="aws-benefits-list">
+          <li>
+            <strong>Continuous probes on EC2/Lambda:</strong> 
+            High-frequency monitoring nodes deployed globally to detect millisecond latency changes in Web3 endpoints.
+          </li>
+          <li>
+            <strong>S3 evidence storage:</strong> 
+            Highly durable, tamper-resistant bucket configuration to host canonical JSON evidence files for on-chain reference.
+          </li>
+          <li>
+            <strong>CloudWatch/OpenSearch ingestion:</strong> 
+            Aggregating massive telemetry feeds from multiple targets to construct real-time performance profiles.
+          </li>
+          <li>
+            <strong>Bedrock AI SRE analysis:</strong> 
+            Running secure, hosted Llama3/Claude models to analyze logs, deduce root causes, and output non-obvious recommendations.
+          </li>
+          <li>
+            <strong>Multi-region Web3 infrastructure monitoring:</strong> 
+            Ensuring high-availability probes across EU, US, and AP regions to eliminate local network false positives.
+          </li>
+          <li>
+            <strong>Testnet/Mainnet relayer costs:</strong> 
+            Subsidizing gas and server costs to submit attestations onto Sepolia/Base testnets and mainnet environments.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Submission-ready demo flow -->
+      <section class="card glass-card">
+        <div class="card-badge flow-badge">Step-by-step Flow</div>
+        <h2>Submission-Ready Demo Flow</h2>
+        <p class="section-intro">ProofPulse operates systematically to turn infrastructure alerts into verifiable cryptographic evidence:</p>
+        
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Monitor Web3 Target</h4>
+              <p>ProofPulse nodes actively ping RPC, oracle, bridge, or validator endpoints from distributed AWS locations.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Detect Degraded RPC/Oracle Behavior</h4>
+              <p>If latency exceeds threshold (e.g. >420ms) or error rate climbs, check statuses mark the target as degraded.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>AI SRE Creates Incident Analysis</h4>
+              <p>Bedrock evaluates logs and metrics, computes a unified risk score, compiles a summary, and lists recovery actions.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Evidence Bundle Hash is Computed</h4>
+              <p>A deterministic canonical JSON representation of targets, incidents, and raw checks is compiled, computing a unique bundle hash.</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h4>On-chain Attestation is Prepared</h4>
+              <p>A payload containing the cryptographic hash and metadata is packaged for Sepolia EVM broadcast.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      <p>ProofPulse — Built for DoraHacks. Verifiable middleware layer powered by AWS Activate.</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
